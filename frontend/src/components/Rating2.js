@@ -1,36 +1,34 @@
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'
 
-import { Fragment } from "react";
-
-const Rating2 = ( { value, text } ) => {
+const Rating2 = ( { value, item, text } ) => {
 
   let x = 1
 
   return (
-    <div className='rating'>
+    <div className='rating' key={Math.random()}>
 
       {(() => {
 
           const options = [];
 
           while (x <= value) {
-            options.push(<span><FaStar /></span>)
+            options.push(<span key={Math.random()}><FaStar /></span>)
             x++
           }
 
           if ((value % 1) > 0) {
-            options.push(<span><FaStarHalfAlt /></span>)
+            options.push(<span key={Math.random()}><FaStarHalfAlt /></span>)
             x++
           }
 
           x--
 
           while (x < 5) {
-            options.push(<span><FaRegStar /></span>)
+            options.push(<span key={Math.random()}><FaRegStar /></span>)
             x++
           }
 
-          options.push(<span className="rating-text">{ text && text }</span>)
+          options.push(<span className="rating-text" key={Math.random()}>{ text && text }</span>)
 
           return options;
 
